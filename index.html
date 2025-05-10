@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuansa Bee | Luxury Coffee Experience</title>
+    <meta name="description" content="Nuansa Bee - Premium specialty coffee with futuristic minimalist aesthetics">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Loading Animation -->
+    <div id="loading" class="fixed inset-0 bg-[#F5F0EC] z-50 flex flex-col items-center justify-center">
+        <div class="loading-animation mb-8">
+            <div class="coffee-cup"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+        </div>
+        <p class="text-[#C68642] font-medium">Brewing your experience...</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-40 py-4 px-6 md:px-12">
+        <div class="flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-[#1E1E1E] flex items-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2">
+                    <path
+                        d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4Z"
+                        fill="#C68642" />
+                    <path
+                        d="M22 12C22 10.8954 21.1046 10 20 10H12C10.8954 10 10 10.8954 10 12V20C10 21.1046 10.8954 22 12 22H20C21.1046 22 22 21.1046 22 20V12Z"
+                        fill="#F5F0EC" />
+                </svg>
+                nuansa bee
+            </a>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Home
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#menu"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Menu
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    About
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#locations"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Locations
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Contact
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <button id="menuToggle" class="md:hidden focus:outline-none">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M3 6H21" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M3 18H21" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed inset-0 bg-[#F5F0EC] z-30 flex flex-col items-center justify-center transform translate-y-full transition-transform duration-300">
+        <nav class="flex flex-col items-center space-y-8">
+            <a href="#home" class="text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Home</a>
+            <a href="#menu" class="text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Menu</a>
+            <a href="#about"
+                class="text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">About</a>
+            <a href="#locations"
+                class="text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Locations</a>
+            <a href="#contact"
+                class="text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Video Background -->
+        <video autoplay muted loop class="absolute w-full h-full object-cover">
+            <source
+                src="https://videocdn.cdnpk.net/videos/393cbbe5-b77f-417d-a1d2-f0f7cb896ac0/horizontal/previews/clear/large.mp4?token=exp=1746664581~hmac=21a6b3c626f2d3a2530e0f3427c6ff01e01f08cff6f52d5cdda0a2ef3edd23c4"
+                type="video/mp4">
+        </video>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6" id="heroTitle">nuansa bee</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">Where luxury meets the art of coffee.
+                Experience our meticulously crafted brews in an atmosphere of modern elegance.</p>
+            <a href="#menu"
+                class="ripple pulse inline-block bg-[#C68642] hover:bg-[#A56B36] text-white px-8 py-3 rounded-full font-medium text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                Explore Our Brews
+            </a>
+        </div>
+
+        <!-- Brew of the Month Badge -->
+        <div class="absolute bottom-8 right-8 glass-card p-4 rounded-full shadow-lg floating" data-aos="fade-left"
+            data-aos-delay="500">
+            <div class="flex items-center">
+                <div class="bg-[#C68642] text-white rounded-full w-10 h-10 flex items-center justify-center mr-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-xs text-white">Brew of the Month</p>
+                    <p class="text-sm font-medium text-white">Ethiopian Yirgacheffe</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+            <div class="animate-bounce">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-[#F5F0EC] relative overflow-hidden">
+        <!-- Coffee Bean Particles -->
+        <div id="particles-js" class="absolute inset-0 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#1E1E1E] mb-4">Our Signature Brews</h2>
+                <div class="w-24 h-0.5 bg-[#C68642] mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-[#555]">Each cup tells a story of origin, craftsmanship, and passion.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu Item 1 -->
+                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="100" onclick="openModal('modal1')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://img.freepik.com/free-vector/coffee-advertisement-realistic-composition_1284-26172.jpg?t=st=1746666997~exp=1746670597~hmac=7cbc89f3b919b6b306bfba5dddc9db1923ba0b52503d8d982bfc78fb447c2362&w=1380"
+                            alt="Honey Lavender Latte"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Seasonal</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Honey Lavender Latte</h3>
+                            <span class="text-[#C68642] font-bold">$6.50</span>
+                        </div>
+                        <p class="text-[#555] mb-4">A floral twist on our classic latte with locally sourced honey and
+                            organic lavender.</p>
+                        <div class="flex items-center text-[#C68642]">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5 0 4 4 0 0 1 0-5 10 10 0 0 0-5-5z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">View Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="200" onclick="openModal('modal2')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1568649929103-28ffbefaca1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Vietnamese Coconut Coffee"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Vietnamese Coconut Coffee</h3>
+                            <span class="text-[#C68642] font-bold">$7.00</span>
+                        </div>
+                        <p class="text-[#555] mb-4">Rich, bold coffee sweetened with condensed milk and topped with
+                            creamy coconut foam.</p>
+                        <div class="flex items-center text-[#C68642]">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5 0 4 4 0 0 1 0-5 10 10 0 0 0-5-5z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">View Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal3')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1522992319-0365e5f11656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Spiced Chai Latte"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Vegan</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Spiced Chai Latte</h3>
+                            <span class="text-[#C68642] font-bold">$5.75</span>
+                        </div>
+                        <p class="text-[#555] mb-4">House-blended chai with cinnamon, cardamom, and black tea, steamed
+                            with milk.</p>
+                        <div class="flex items-center text-[#C68642]">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5 0 4 4 0 0 1 0-5 10 10 0 0 0-5-5z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">View Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16" data-aos="fade-up">
+                <a href="#"
+                    class="ripple inline-block bg-[#1E1E1E] hover:bg-[#333] text-white px-8 py-3 rounded-full font-medium text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                    View Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[#D9B8A6] relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12" data-aos="fade-right">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Nuansa Bee Coffee Shop" class="w-full rounded-xl shadow-xl">
+                        <div
+                            class="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C68642] rounded-full flex items-center justify-center shadow-lg">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F0EC"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1E1E1E] mb-6">Our Story</h2>
+                    <div class="w-24 h-0.5 bg-[#C68642] mb-6"></div>
+                    <p class="text-[#555] mb-6">Founded in 2015, Nuansa Bee began as a dream to create a community space
+                        centered around exceptional coffee. The name "Nuansa Bee" reflects our philosophy - "Nuansa"
+                        meaning ambiance in Indonesian, and "Bee" representing our commitment to sustainability and
+                        community, much like a beehive.</p>
+                    <p class="text-[#555] mb-8">What started as a small corner café has grown into a beloved
+                        neighborhood institution, but our values remain the same: quality, sustainability, and
+                        connection.</p>
+
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#1E1E1E] mb-4">Our Timeline</h3>
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div
+                                        class="w-12 h-12 bg-[#C68642] rounded-full flex items-center justify-center text-white">
+                                        2015
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1E1E]">Grand Opening</h4>
+                                    <p class="text-[#555]">Our first location opens in downtown Beanville</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div
+                                        class="w-12 h-12 bg-[#C68642] rounded-full flex items-center justify-center text-white">
+                                        2018
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1E1E]">Direct Trade</h4>
+                                    <p class="text-[#555]">Established direct relationships with coffee farmers</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div
+                                        class="w-12 h-12 bg-[#C68642] rounded-full flex items-center justify-center text-white">
+                                        2022
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1E1E]">Second Location</h4>
+                                    <p class="text-[#555]">Expanded to the Arts District with a roastery</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="ripple inline-block bg-[#1E1E1E] hover:bg-[#333] text-white px-8 py-3 rounded-full font-medium shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Meet Our Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-[#F5F0EC]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#1E1E1E] mb-4">What Our Customers Say</h2>
+                <div class="w-24 h-0.5 bg-[#C68642] mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-[#555]">Don't just take our word for it - hear from our community!</p>
+            </div>
+
+            <div class="relative">
+                <div class="overflow-x-auto pb-8">
+                    <div class="flex space-x-6 w-max">
+                        <!-- Testimonial 1 -->
+                        <div class="w-80 flex-shrink-0 bg-white rounded-xl p-8 shadow-md" data-aos="fade-up"
+                            data-aos-delay="100">
+                            <div class="flex mb-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                            </div>
+                            <p class="text-[#555] italic mb-6">"The Honey Lavender Latte is life-changing! I come here
+                                every Saturday morning to write and the ambiance is perfect for creativity."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J."
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1E1E]">Sarah J.</h4>
+                                    <p class="text-[#555] text-sm">Regular since 2018</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="w-80 flex-shrink-0 bg-white rounded-xl p-8 shadow-md" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <div class="flex mb-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                            </div>
+                            <p class="text-[#555] italic mb-6">"As a coffee snob, I'm impressed by their pour-over bar.
+                                The baristas clearly know their craft and the beans are exceptional quality."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T."
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1E1E]">Michael T.</h4>
+                                    <p class="text-[#555] text-sm">Coffee Connoisseur</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="w-80 flex-shrink-0 bg-white rounded-xl p-8 shadow-md" data-aos="fade-up"
+                            data-aos-delay="300">
+                            <div class="flex mb-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C68642" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                            </div>
+                            <p class="text-[#555] italic mb-6">"The perfect spot for remote work - great WiFi, ample
+                                outlets, and the staff is so friendly. Plus their avocado toast is next level!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K."
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1E1E]">Priya K.</h4>
+                                    <p class="text-[#555] text-sm">Digital Nomad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="py-20 bg-[#1E1E1E] text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Locations</h2>
+                <div class="w-24 h-0.5 bg-[#C68642] mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-[#D9B8A6]">Find your nearest Nuansa Bee experience</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <div class="h-96 w-full rounded-xl overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.771479387594!2d108.53626167378752!3d-6.716155865662311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ee30011ae0195%3A0x95f67ab14712513d!2sNuansa%20Bee%20-%20Mocktail%20%26%20Eatery!5e1!3m2!1sid!2sid!4v1746667299591!5m2!1sid!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="space-y-8">
+                        <!-- Location 1 -->
+                        <div class="flex items-start">
+                            <div class="mr-6">
+                                <div class="w-16 h-16 bg-[#C68642] rounded-full flex items-center justify-center">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5F0EC"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Downtown Beanville</h3>
+                                <p class="text-[#D9B8A6] mb-3">123 Coffee Lane, Beanville, CA 90210</p>
+                                <div class="flex items-center text-[#C68642]">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    <span>(555) 123-4567</span>
+                                </div>
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-sm mb-2">Hours</h4>
+                                    <p class="text-[#D9B8A6] text-sm">Mon-Fri: 7am - 7pm</p>
+                                    <p class="text-[#D9B8A6] text-sm">Sat-Sun: 8am - 8pm</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location 2 -->
+                        <div class="flex items-start">
+                            <div class="mr-6">
+                                <div class="w-16 h-16 bg-[#C68642] rounded-full flex items-center justify-center">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5F0EC"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Arts District Roastery</h3>
+                                <p class="text-[#D9B8A6] mb-3">456 Brew Street, Beanville, CA 90210</p>
+                                <div class="flex items-center text-[#C68642]">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    <span>(555) 987-6543</span>
+                                </div>
+                                <div class="mt-4">
+                                    <h4 class="font-bold text-sm mb-2">Hours</h4>
+                                    <p class="text-[#D9B8A6] text-sm">Mon-Fri: 6am - 6pm</p>
+                                    <p class="text-[#D9B8A6] text-sm">Sat-Sun: 7am - 5pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="contact" class="py-20 bg-[#F5F0EC]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="gradient-bg rounded-2xl p-8 md:p-12 shadow-xl" data-aos="fade-up">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1E1E1E] mb-4">Join Our Brew Crew</h2>
+                    <p class="text-[#555] max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, events,
+                        and coffee tips!</p>
+                </div>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                    <input type="email" placeholder="Your email address"
+                        class="flex-grow px-6 py-4 rounded-xl border border-[#D9B8A6] focus:outline-none focus:ring-2 focus:ring-[#C68642] bg-white">
+                    <button type="submit"
+                        class="ripple bg-[#1E1E1E] hover:bg-[#333] text-white px-8 py-4 rounded-xl font-medium shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-[#555] text-sm mt-4 text-center">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1E1E1E] text-[#D9B8A6] py-12 relative overflow-hidden">
+        <!-- Floating Social Icons -->
+        <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
+            <div class="relative w-full h-full">
+                <div class="absolute top-20 left-1/4 w-12 h-12 rounded-full bg-[#C68642] opacity-10 floating"
+                    style="animation-delay: 0s;"></div>
+                <div class="absolute top-1/3 right-1/5 w-8 h-8 rounded-full bg-[#C68642] opacity-10 floating"
+                    style="animation-delay: 1s;"></div>
+                <div class="absolute bottom-1/4 left-1/5 w-10 h-10 rounded-full bg-[#C68642] opacity-10 floating"
+                    style="animation-delay: 2s;"></div>
+                <div class="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-[#C68642] opacity-10 floating"
+                    style="animation-delay: 3s;"></div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="mr-2">
+                            <path
+                                d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4Z"
+                                fill="#C68642" />
+                            <path
+                                d="M22 12C22 10.8954 21.1046 10 20 10H12C10.8954 10 10 10.8954 10 12V20C10 21.1046 10.8954 22 12 22H20C21.1046 22 22 21.1046 22 20V12Z"
+                                fill="#F5F0EC" />
+                        </svg>
+                        <a href="#" class="text-2xl font-bold text-white">nuansa bee</a>
+                    </div>
+                    <p class="mb-4">Craft Coffee & Community Since 2015</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-[#D9B8A6] hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#menu" class="text-[#D9B8A6] hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="#about" class="text-[#D9B8A6] hover:text-white transition-colors">About</a></li>
+                        <li><a href="#locations" class="text-[#D9B8A6] hover:text-white transition-colors">Locations</a>
+                        </li>
+                        <li><a href="#contact" class="text-[#D9B8A6] hover:text-white transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Information</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">Privacy Policy</a>
+                        </li>
+                        <li><a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">Terms of Service</a>
+                        </li>
+                        <li><a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">Shipping Policy</a>
+                        </li>
+                        <li><a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9B8A6"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 mr-2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>123 Coffee Lane, Beanville, CA 90210</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9B8A6"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 mr-2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9B8A6"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 mr-2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>hello@nuansabee.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-[#333] text-center">
+                <p>&copy; 2023 Nuansa Bee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menu Modals -->
+    <!-- Modal 1 - Detail Produk -->
+    <div id="modal1"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal1')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="https://images.unsplash.com/photo-1576075796073-248fb3a08382?auto=format&fit=crop&w=800&q=80"
+                            alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold mr-9">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button
+                                class="ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Add to Order
+                            </button>
+                            <button
+                                class="ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Detail Produk -->
+    <div id="modal2"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal2')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="https://images.unsplash.com/photo-1576075796073-248fb3a08382?auto=format&fit=crop&w=800&q=80"
+                            alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold mr-9">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button
+                                class="ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Add to Order
+                            </button>
+                            <button
+                                class="ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 - Detail Produk -->
+    <div id="modal3"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal3')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="https://images.unsplash.com/photo-1576075796073-248fb3a08382?auto=format&fit=crop&w=800&q=80"
+                            alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold mr-9">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button
+                                class="ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Add to Order
+                            </button>
+                            <button
+                                class="ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+
+</html>
