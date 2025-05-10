@@ -5,11 +5,20 @@
   --dark: #1e1e1e;
 }
 
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
   font-family: "Inter", sans-serif;
   background-color: var(--cream);
   color: var(--dark);
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .glass-card {
@@ -191,6 +200,3 @@ body {
   border-radius: 50%;
   pointer-events: none;
 }
-
-
-
