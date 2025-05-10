@@ -143,12 +143,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 10. Particles.js Initialization (Mobile Safety Check)
     if (window.innerWidth > 768 && document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50 },
-                size: { value: 3 },
-                color: "#C68642"
-            }
-        });
+        particlesJS('particles-js', { /* config */ });
     }
+
+    // With this (to handle resize dynamically):
+    function initParticles() {
+        const container = document.getElementById('particles-js');
+        if (!container) return;
+
+        if (window.innerWidth > 768) {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 50 },
+                    size: { value: 3 },
+                    color: "#C68642"
+                }
+            });
+        }
+    }
+
+    window.addEventListener('resize', () => {
+        // Destroy existing particles on resize
+        if (window.pJSDom && window.pJSDom.length > 0) {
+            window.pJSDom[0].pJS.fn.vendors.destroypJS();
+        }
+        initParticles();
+    });
+
+    initParticles(); // Initial call
 });
