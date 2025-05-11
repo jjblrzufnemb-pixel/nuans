@@ -431,3 +431,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+    const isMobile = window.innerWidth < 768;
+
+    document.querySelectorAll('.fade-in').forEach((el) => {
+        if (!isMobile && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.from(el, {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 90%',
+                },
+            });
+        } else {
+            // Untuk mobile: langsung tampilkan tanpa animasi
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.style.transition = 'none';
+        }
+    });
+});
