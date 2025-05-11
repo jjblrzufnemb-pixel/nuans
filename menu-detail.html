@@ -139,26 +139,38 @@
     <section class="py-12 bg-[#F5F0EC]">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
-                <button class="px-6 py-2 bg-[#C68642] text-white rounded-full font-medium shadow-md active">All
+                <!-- Tambahkan class 'category-btn' dan atribut data-category -->
+                <button class="transition-transform duration-150 ease-in-out active:scale-95 hover:scale-105 category-btn bg-[#C68642] text-white px-6 py-2 rounded-full" data-category="All">All
                     Items</button>
-                <button
-                    class="px-6 py-2 bg-white text-[#1E1E1E] hover:bg-[#C68642] hover:text-white rounded-full font-medium shadow-md transition-colors duration-300">Signature
+                <button class="transition-transform duration-150 ease-in-out active:scale-95 hover:scale-105 category-btn bg-white px-6 py-2 rounded-full" data-category="Signature Coffees">Signature
                     Coffees</button>
-                <button
-                    class="px-6 py-2 bg-white text-[#1E1E1E] hover:bg-[#C68642] hover:text-white rounded-full font-medium shadow-md transition-colors duration-300">Specialty
+                <button class="transition-transform duration-150 ease-in-out active:scale-95 hover:scale-105 category-btn bg-white px-6 py-2 rounded-full" data-category="Specialty Drinks">Specialty
                     Drinks</button>
-                <button
-                    class="px-6 py-2 bg-white text-[#1E1E1E] hover:bg-[#C68642] hover:text-white rounded-full font-medium shadow-md transition-colors duration-300">Teas
-                    & Infusions</button>
-                <button
-                    class="px-6 py-2 bg-white text-[#1E1E1E] hover:bg-[#C68642] hover:text-white rounded-full font-medium shadow-md transition-colors duration-300">Pastries
-                    & Snacks</button>
+                <button class="transition-transform duration-150 ease-in-out active:scale-95 hover:scale-105 category-btn bg-white px-6 py-2 rounded-full" data-category="Teas & Infusions">Teas &
+                    Infusions</button>
+                <button class="transition-transform duration-150 ease-in-out active:scale-95 hover:scale-105 category-btn bg-white px-6 py-2 rounded-full" data-category="Pastries & Snacks">Pastries &
+                    Snacks</button>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between mb-8" data-aos="fade-up">
+                <input id="searchInput" type="text" placeholder="Search menu..."
+                    class="w-full md:w-1/3 px-4 py-2 mb-4 md:mb-0 border border-gray-300 rounded-full focus:ring-2 focus:ring-[#C68642]" />
+
+                <select id="sortSelect"
+                    class="w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-[#C68642]">
+                    <option value="">Sort by</option>
+                    <option value="name-asc">Name A-Z</option>
+                    <option value="name-desc">Name Z-A</option>
+                    <option value="price-asc">Price Low to High</option>
+                    <option value="price-desc">Price High to Low</option>
+                </select>
             </div>
 
             <!-- Menu Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Menu Item 1 -->
-                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                <div data-name="espresso Latte" data-price="0.50" data-category="Signature Coffees"
+                    class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
                     data-aos="fade-up" data-aos-delay="100" onclick="openModal('modal1')">
                     <div class="h-64 overflow-hidden relative">
                         <img src="./ASSETS/img/product0.jpg" alt="Honey Lavender Latte"
@@ -185,7 +197,8 @@
                 </div>
 
                 <!-- Menu Item 2 -->
-                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                <div data-name="robusta Latte" data-price="10.50" data-category="Specialty Drinks"
+                    class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
                     data-aos="fade-up" data-aos-delay="200" onclick="openModal('modal2')">
                     <div class="h-64 overflow-hidden relative">
                         <img src="./ASSETS/img/product1.jpg" alt="Vietnamese Coconut Coffee"
@@ -212,7 +225,8 @@
                 </div>
 
                 <!-- Menu Item 3 -->
-                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                <div data-name="Hazelnut Latte" data-price="2.50" data-category="Specialty Drinks"
+                    class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
                     data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal3')">
                     <div class="h-64 overflow-hidden relative">
                         <img src="./ASSETS/img/product3.jpg" alt="Spiced Chai Latte"
@@ -239,8 +253,9 @@
                 </div>
 
                 <!-- Menu Item 4 -->
-                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="100">
+                <div data-name="Caffe Latte" data-price="7.50" data-category="Signature Moca"
+                    class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="100" onclick="openModal('modal4')">
                     <div class="h-64 overflow-hidden relative">
                         <img src="./ASSETS/img/product4.jpg" alt="Matcha Green Tea Latte"
                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
@@ -266,8 +281,9 @@
                 </div>
 
                 <!-- Menu Item 5 -->
-                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="200">
+                <div data-name="Americano" data-price="1.50" data-category="Teas & Infusions"
+                    class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="200" onclick="openModal('modal5')">
                     <div class="h-64 overflow-hidden relative">
                         <img src="./ASSETS/img/product5.jpg" alt="Cold Brew Tonic"
                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
@@ -293,8 +309,9 @@
                 </div>
 
                 <!-- Menu Item 6 -->
-                <div class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="300">
+                <div data-name="Honey Lavender Latte" data-price="16.50" data-category="Pastries & Snacks"
+                    class="menu-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal6')">
                     <div class="h-64 overflow-hidden relative">
                         <img src="./ASSETS/img/product6.jpg" alt="Caramel Macchiato"
                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
@@ -322,7 +339,7 @@
 
             <!-- Pagination -->
             <div class="flex justify-center mt-12" data-aos="fade-up">
-                <div class="flex space-x-2">
+                <div id="pagination" class="flex space-x-2">
                     <a href="#"
                         class="w-10 h-10 flex items-center justify-center rounded-full bg-[#C68642] text-white font-medium">1</a>
                     <a href="#"
@@ -604,6 +621,680 @@
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
+
+    <!-- Menu Modals -->
+    <!-- Modal 1 - Detail Produk -->
+    <div id="modal1"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal1')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="./ASSETS/img/product0.jpg" alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8 lg:mt-9">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#"
+                                class="text-center ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Online Order
+                            </a>
+                            <a href="#"
+                                class="text-center ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Order di Tempat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Detail Produk -->
+    <div id="modal2"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal2')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="./ASSETS/img/product1.jpg" alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8 lg:mt-9">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#"
+                                class="text-center ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Online Order
+                            </a>
+                            <a href="#"
+                                class="text-center ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Order di Tempat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 - Detail Produk -->
+    <div id="modal3"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal3')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="./ASSETS/img/product3.jpg" alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8 lg:mt-9">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#"
+                                class="text-center ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Online Order
+                            </a>
+                            <a href="#"
+                                class="text-center ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Order di Tempat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Modals -->
+    <!-- Modal 4 - Detail Produk -->
+    <div id="modal4"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal4')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="./ASSETS/img/product4.jpg" alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8 lg:mt-9">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#"
+                                class="text-center ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Online Order
+                            </a>
+                            <a href="#"
+                                class="text-center ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Order di Tempat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 - Detail Produk -->
+    <div id="modal5"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal5')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="./ASSETS/img/product5.jpg" alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8 lg:mt-9">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#"
+                                class="text-center ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Online Order
+                            </a>
+                            <a href="#"
+                                class="text-center ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Order di Tempat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 - Detail Produk -->
+    <div id="modal6"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="relative">
+                <!-- Tombol Close -->
+                <button onclick="closeModal('modal6')"
+                    class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Grid Konten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Gambar Produk -->
+                    <div class="h-96 lg:h-auto">
+                        <img src="./ASSETS/img/product6.jpg" alt="Espresso Romano"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <!-- Badge Produk -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#C68642] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Bestseller
+                        </div>
+                    </div>
+
+                    <!-- Detail Produk -->
+                    <div class="p-6 lg:p-8 lg:mt-9">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-[#1E1E1E]">Espresso Romano</h3>
+                            <span class="text-[#C68642] font-bold">$5.50</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-[#555] mb-6">
+                            Espresso klasik dengan sentuhan segar dari kulit lemon alami. Disajikan dengan irisan lemon
+                            segar untuk
+                            pengalaman rasa yang unik dan menyegarkan.
+                        </p>
+
+                        <!-- Ingredients -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-[#1E1E1E] mb-3">Bahan-Bahan:</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm text-[#555]">
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Arabica Beans
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Lemon Slice
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Brown Sugar
+                                </li>
+                                <li class="flex items-center">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C68642"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="mr-1 flex-shrink-0">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Citrus Oil
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <div class="bg-[#C68642] text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Classic
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Signature
+                            </div>
+                            <div class="bg-[#F5F0EC] text-[#C68642] text-xs font-bold px-3 py-1 rounded-full">
+                                Citrus
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="#"
+                                class="text-center ripple flex-grow bg-[#C68642] hover:bg-[#A56B36] text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-colors duration-300">
+                                Online Order
+                            </a>
+                            <a href="#"
+                                class="text-center ripple flex-grow border border-[#C68642] text-[#C68642] hover:bg-[#F5F0EC] px-6 py-3 rounded-xl font-medium transition-colors duration-300">
+                                Order di Tempat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Script -->
     <script src="./ASSETS/JS/script.js"></script>

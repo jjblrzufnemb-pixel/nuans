@@ -463,3 +463,98 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('nav-blur'); // Hilangkan saat di atas
     }
 });
+
+const searchInput = document.getElementById('searchInput');
+const sortSelect = document.getElementById('sortSelect');
+const menuCards = Array.from(document.querySelectorAll('.menu-card'));
+
+function filterAndSortMenu() {
+    const query = searchInput.value.toLowerCase();
+    const sortBy = sortSelect.value;
+
+    let filtered = menuCards.filter(card =>
+        card.dataset.name.toLowerCase().includes(query)
+    );
+
+    if (sortBy === 'name-asc') {
+        filtered.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+    } else if (sortBy === 'name-desc') {
+        filtered.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
+    } else if (sortBy === 'price-asc') {
+        filtered.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+    } else if (sortBy === 'price-desc') {
+        filtered.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+    }
+
+    const grid = document.querySelector('.grid');
+    grid.innerHTML = '';
+    filtered.forEach(card => grid.appendChild(card));
+}
+
+searchInput.addEventListener('input', filterAndSortMenu);
+sortSelect.addEventListener('change', filterAndSortMenu);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const allCards = Array.from(document.querySelectorAll('.menu-card'));
+    const grid = document.querySelector('.grid');
+    const pagination = document.getElementById("pagination");
+
+    let filteredCards = [...allCards];
+    let currentPage = 1;
+    const itemsPerPage = 3;
+
+    function renderPagination() {
+        const pageCount = Math.ceil(filteredCards.length / itemsPerPage);
+        pagination.innerHTML = '';
+
+        for (let i = 1; i <= pageCount; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            btn.className = `w-10 h-10 flex items-center justify-center rounded-full font-medium transition-colors duration-300 mx-1 ${i === currentPage ? 'bg-[#C68642] text-white' : 'bg-white text-[#1E1E1E] hover:bg-[#C68642] hover:text-white'
+                }`;
+            btn.addEventListener('click', () => {
+                currentPage = i;
+                renderCards();
+                renderPagination();
+            });
+            pagination.appendChild(btn);
+        }
+    }
+
+    function renderCards() {
+        grid.innerHTML = '';
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        filteredCards.slice(start, end).forEach(card => grid.appendChild(card));
+    }
+
+    function filterByCategory(category) {
+        currentPage = 1;
+        filteredCards = (category === "All")
+            ? [...allCards]
+            : allCards.filter(card => card.dataset.category === category);
+
+        renderCards();
+        renderPagination();
+    }
+
+    // Handle category click
+    categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update style active
+            categoryButtons.forEach(b => b.classList.remove('bg-[#C68642]', 'text-white'));
+            categoryButtons.forEach(b => b.classList.add('bg-white', 'text-[#1E1E1E]'));
+
+            btn.classList.remove('bg-white', 'text-[#1E1E1E]');
+            btn.classList.add('bg-[#C68642]', 'text-white');
+
+            // Filter
+            const selected = btn.dataset.category;
+            filterByCategory(selected);
+        });
+    });
+
+    // Inisialisasi pertama
+    filterByCategory("All");
+});
