@@ -390,3 +390,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
     initParticles(); // Initial call
 });
+
+// Newsletter form handler
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("investor-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = this.querySelector("input[name='user_name']").value.trim();
+        const email = this.querySelector("input[name='user_email']").value.trim();
+        const message = this.querySelector("textarea[name='user_message']").value.trim();
+        const button = this.querySelector("button[type='submit']");
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        emailjs.send("service_vm9k7tv", "template_n9mxg0j", {
+            name: name,
+            email: email,
+            message: message
+        }).then(() => {
+            alert("Thank you for reaching out! We'll be in touch.");
+            form.reset();
+            button.disabled = false;
+            button.textContent = "Join Us";
+        }).catch((error) => {
+            alert("Failed to send your message. Please try again.");
+            console.error("EmailJS Error:", error);
+            button.disabled = false;
+            button.textContent = "Join Us";
+        });
+    });
+});
+
