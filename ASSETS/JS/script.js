@@ -454,3 +454,12 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 30) {
+        navbar.classList.add('nav-blur'); // Tambahkan efek blur
+    } else {
+        navbar.classList.remove('nav-blur'); // Hilangkan saat di atas
+    }
+});

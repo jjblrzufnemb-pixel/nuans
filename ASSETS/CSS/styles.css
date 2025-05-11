@@ -212,7 +212,6 @@ html {
   }
 }
 
-/* ✅ Perbaikan tambahan untuk mobile agar langsung tampil */
 /* Untuk semua elemen yang memakai animasi fade-in di mobile */
 @media (max-width: 767px) {
   .fade-in {
@@ -220,4 +219,10 @@ html {
     transform: none !important;
     transition: none !important;
   }
+}
+
+.nav-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
