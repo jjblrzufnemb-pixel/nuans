@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Policy - Nuansa Bee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./ASSETS/CSS/styles.css" />
+    <link rel="icon" href="./ASSETS/img/icon.png" type="image/png">
+    <style>
+        .ripple-effect {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s forwards;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#F5F0EC] text-[#1E1E1E]">
+    <!-- Loading Animation -->
+    <div id="loading" class="fixed inset-0 bg-[#F5F0EC] z-50 flex flex-col items-center justify-center">
+        <div class="loading-animation mb-8">
+            <div class="coffee-cup"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+        </div>
+        <p class="text-[#C68642] font-medium">Brewing your experience...</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-40 py-4 px-6 md:px-12 bg-[#F5F0EC] shadow-sm">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#1E1E1E] flex items-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2">
+                    <path
+                        d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4Z"
+                        fill="#C68642" />
+                    <path
+                        d="M22 12C22 10.8954 21.1046 10 20 10H12C10.8954 10 10 10.8954 10 12V20C10 21.1046 10.8954 22 12 22H20C21.1046 22 22 21.1046 22 20V12Z"
+                        fill="#F5F0EC" />
+                </svg>
+                nuansa bee
+            </a>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#home"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Home
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#menu"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Menu
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#about"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    About
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#locations"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Locations
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#contact"
+                    class="text-[#1E1E1E] hover:text-[#C68642] transition-colors duration-300 font-medium relative group">
+                    Contact
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C68642] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <button id="menuToggle" class="md:hidden focus:outline-none">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M3 6H21" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M3 18H21" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed inset-0 bg-[#F5F0EC] z-30 flex flex-col items-center justify-center transform translate-y-full transition-transform duration-300 h-screen">
+        <nav class="flex flex-col items-center space-y-8">
+            <a href="index.html#home"
+                class="mobile-menu-link text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Home</a>
+            <a href="index.html#menu"
+                class="mobile-menu-link text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Menu</a>
+            <a href="index.html#about"
+                class="mobile-menu-link text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">About</a>
+            <a href="index.html#locations"
+                class="mobile-menu-link text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Locations</a>
+            <a href="index.html#contact"
+                class="mobile-menu-link text-2xl font-medium text-[#1E1E1E] hover:text-[#C68642] transition-colors">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-12 bg-[#D9B8A6] relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">Shipping Policy</h1>
+                <div class="w-24 h-0.5 bg-[#C68642] mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-[#555]">Information about our shipping methods, delivery times, and policies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Policy Content -->
+    <section class="py-12 bg-[#F5F0EC]">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-xl p-8 shadow-md" data-aos="fade-up">
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-[#1E1E1E] mb-4">Shipping Methods</h2>
+                    <p class="text-[#555] mb-4">We offer the following shipping methods for our products:</p>
+                    <ul class="list-disc pl-6 text-[#555] space-y-2">
+                        <li><strong>Standard Shipping:</strong> Delivery within 3-5 business days</li>
+                        <li><strong>Express Shipping:</strong> Delivery within 1-2 business days</li>
+                        <li><strong>Same-Day Delivery:</strong> Available for orders placed before 11 AM within our service area</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-[#1E1E1E] mb-4">Shipping Costs</h2>
+                    <p class="text-[#555] mb-4">Shipping costs are calculated based on the delivery method, destination, and order value:</p>
+                    <ul class="list-disc pl-6 text-[#555] space-y-2">
+                        <li>Orders over Rp 200.000 qualify for free standard shipping</li>
+                        <li>Standard shipping starts at Rp 15.000 for orders under Rp 200.000</li>
+                        <li>Express shipping costs an additional Rp 25.000</li>
+                        <li>Same-day delivery costs an additional Rp 35.000</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-[#1E1E1E] mb-4">Delivery Times</h2>
+                    <p class="text-[#555] mb-4">Delivery times are estimates and may vary based on your location and other factors:</p>
+                    <ul class="list-disc pl-6 text-[#555] space-y-2">
+                        <li>Business days are Monday through Friday, excluding holidays</li>
+                        <li>Orders are processed within 24 hours of being placed</li>
+                        <li>Delivery times begin once your order has been processed</li>
+                        <li>You will receive tracking information via email once your order ships</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-[#1E1E1E] mb-4">International Shipping</h2>
+                    <p class="text-[#555] mb-4">We currently ship to select international destinations:</p>
+                    <ul class="list-disc pl-6 text-[#555] space-y-2">
+                        <li>International shipping costs and delivery times vary by destination</li>
+                        <li>Customers are responsible for any customs duties or taxes</li>
+                        <li>International orders typically take 7-14 business days for delivery</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-[#1E1E1E] mb-4">Shipping Restrictions</h2>
+                    <p class="text-[#555] mb-4">Please note the following shipping restrictions:</p>
+                    <ul class="list-disc pl-6 text-[#555] space-y-2">
+                        <li>Some perishable items may not be available for all shipping methods</li>
+                        <li>We cannot ship to P.O. boxes for certain products</li>
+                        <li>Delivery to remote areas may require additional time and fees</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-[#1E1E1E] mb-4">Contact Us</h2>
+                    <p class="text-[#555] mb-4">If you have any questions about our shipping policy, please contact us at:</p>
+                    <p class="text-[#555]">
+                        Email: nuansabee7@gmail.com<br>
+                        Phone: +62 8820 0060 3653<br>
+                        Address: Kertawinangun, Kec. Kedawung, Kabupaten Cirebon
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section class="py-16 bg-[#C68642] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-1/4 left-1/3 w-12 h-12 rounded-full bg-white opacity-20 floating"
+                style="animation-delay: 0s;"></div>
+            <div class="absolute top-1/3 right-1/4 w-8 h-8 rounded-full bg-white opacity-20 floating"
+                style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-1/4 left-1/5 w-10 h-10 rounded-full bg-white opacity-20 floating"
+                style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-white opacity-20 floating"
+                style="animation-delay: 3s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Thank You for Visiting</h2>
+                <p class="text-white opacity-90 mb-8">We appreciate your interest in Nuansa Bee. We're committed to providing exceptional coffee experiences and reliable shipping services.</p>
+                <a href="index.html"
+                    class="inline-block bg-white text-[#C68642] px-8 py-3 rounded-full font-medium hover:bg-[#F5F0EC] transition-colors duration-300 shadow-lg">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1E1E1E] text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-1/4 left-1/3 w-12 h-12 rounded-full bg-[#C68642] opacity-10 floating"
+                style="animation-delay: 0s;"></div>
+            <div class="absolute top-1/3 right-1/4 w-8 h-8 rounded-full bg-[#C68642] opacity-10 floating"
+                style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-1/4 left-1/5 w-10 h-10 rounded-full bg-[#C68642] opacity-10 floating"
+                style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-[#C68642] opacity-10 floating"
+                style="animation-delay: 3s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="mr-2">
+                            <path
+                                d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4Z"
+                                fill="#C68642" />
+                            <path
+                                d="M22 12C22 10.8954 21.1046 10 20 10H12C10.8954 10 10 10.8954 10 12V20C10 21.1046 10.8954 22 12 22H20C21.1046 22 22 21.1046 22 20V12Z"
+                                fill="#F5F0EC" />
+                        </svg>
+                        <a href="#" class="text-2xl font-bold text-white">nuansa bee</a>
+                    </div>
+                    <p class="mb-4">Craft Coffee & Community Since 2015</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-[#D9B8A6] hover:text-white transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#home" class="text-[#D9B8A6] hover:text-white transition-colors">Home</a></li>
+                        <li><a href="index.html#menu" class="text-[#D9B8A6] hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="index.html#about" class="text-[#D9B8A6] hover:text-white transition-colors">About</a></li>
+                        <li><a href="index.html#locations" class="text-[#D9B8A6] hover:text-white transition-colors">Locations</a>
+                        </li>
+                        <li><a href="index.html#contact" class="text-[#D9B8A6] hover:text-white transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Information</h3>
+                    <ul class="space-y-2">
+                        <li><a href="privacy-policy.html" class="text-[#D9B8A6] hover:text-white transition-colors">Privacy Policy</a>
+                        </li>
+                        <li><a href="terms-of-service.html" class="text-[#D9B8A6] hover:text-white transition-colors">Terms of Service</a>
+                        </li>
+                        <li><a href="shipping-policy.html" class="text-white hover:text-white transition-colors">Shipping Policy</a>
+                        </li>
+                        <li><a href="faq.html" class="text-[#D9B8A6] hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9B8A6"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 mr-2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Kertawinangun, Kec. Kedawung, Kabupaten Cirebon</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9B8A6"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 mr-2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <span>+62 8820 0060 3653</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9B8A6"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 mr-2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>nuansabee7@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-[#333] text-center">
+                <p>&copy; 2025 Nuansa Bee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 bg-[#C68642] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Script -->
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+
+</html>
